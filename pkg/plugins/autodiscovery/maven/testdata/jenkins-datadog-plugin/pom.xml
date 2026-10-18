@@ -7,7 +7,7 @@
     <groupId>org.jenkins-ci.plugins</groupId>
     <artifactId>plugin</artifactId>
     <!-- Baseline Jenkins version you use to build and test the plugin. Users must have this version or newer to run. -->
-    <version>2.17</version>
+    <version>4.0</version>
     <relativePath/>
   </parent>
 
@@ -43,6 +43,8 @@
 
   <properties>
     <findbugs.skip>true</findbugs.skip>
+    <java.level>8</java.level>
+    <jenkins.version>2.586</jenkins.version>
     <powermock.version>1.6.6</powermock.version>
   </properties>
 
@@ -60,11 +62,21 @@
     </pluginRepository>
   </pluginRepositories>
 
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>4.13.1</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
   <dependencies>
     <dependency>
       <groupId>org.apache.httpcomponents</groupId>
       <artifactId>httpclient</artifactId>
-      <version>4.5.6</version>
+      <version>4.5.13</version>
     </dependency>
     <dependency>
         <groupId>com.datadoghq</groupId>
